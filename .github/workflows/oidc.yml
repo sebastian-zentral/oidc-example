@@ -1,0 +1,43 @@
+---
+name: 'OIDC Example'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Special permissions required for OIDC authentication
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  oidc-example:
+    name: 'OIDC'
+    runs-on: ubuntu-latest
+    outputs:
+      token: ${{ steps.tf-plan.outputs.exitcode }}
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate with Zentral
+        id: auth
+        uses: zentralpro/zentral-oidc-auth@v1
+        with:
+          ztl-fqdn: https://zaio.zentral.com # required
+          ztl-oidc-api-token-issuer-id: ${{ vars.ZTL_OIDC_API_TOKEN_ISSUER_ID }} # required
+          ztl-api-token-name: "Token for my Github action" # optional
+          ztl-api-token-validity: 1200 # optional
+
+      - name: Use the token
+        run: |
+          echo "ZENTRAL_API_TOKEN=$ZENTRAL_API_TOKEN"
+          echo "ZENTRAL_API_USER=$ZENTRAL_API_USER"
+          echo "api_token=$api_token"
