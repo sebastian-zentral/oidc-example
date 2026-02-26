@@ -42,3 +42,4 @@ jobs:
           echo "ZENTRAL_API_TOKEN=$ZENTRAL_API_TOKEN"
           echo "ZENTRAL_API_USER=$ZENTRAL_API_USER"
           echo "api_token=$api_token"
+          echo "api_user=$api_user"
