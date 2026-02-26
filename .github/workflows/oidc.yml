@@ -32,7 +32,7 @@ jobs:
         id: auth
         uses: zentralopensource/zentral-oidc-auth@main
         with:
-          ztl-fqdn: https://zaio.zentral.com # required
+          ztl-fqdn: https://zaio.zentral.dev # required
           ztl-oidc-api-token-issuer-id: ${{ vars.ZTL_OIDC_API_TOKEN_ISSUER_ID }} # required
           ztl-api-token-name: "Token for my Github action" # optional
           ztl-api-token-validity: 1200 # optional
