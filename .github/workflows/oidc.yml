@@ -2,6 +2,7 @@
 name: 'OIDC Example'
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
