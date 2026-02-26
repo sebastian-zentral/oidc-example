@@ -29,7 +29,7 @@ jobs:
 
       - name: Authenticate with Zentral
         id: auth
-        uses: zentralpro/zentral-oidc-auth@24efedeea059bb9b30d96fdf0ce446a6bf47f0fc
+        uses: zentralopensource/zentral-oidc-auth@main
         with:
           ztl-fqdn: https://zaio.zentral.com # required
           ztl-oidc-api-token-issuer-id: ${{ vars.ZTL_OIDC_API_TOKEN_ISSUER_ID }} # required
