@@ -46,5 +46,3 @@ jobs:
         env:
           ZENTRAL_API_TOKEN: ${{ steps.auth.outputs.zentral-api-token }}
           ZENTRAL_API_USER: ${{ steps.auth.outputs.zentral-api-user }}
-          API_TOKEN: ${{ steps.auth.outputs.api_token }}
-          API_USER: ${{ steps.auth.outputs.api_user }}
