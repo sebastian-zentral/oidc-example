@@ -43,3 +43,8 @@ jobs:
           echo "ZENTRAL_API_USER=$ZENTRAL_API_USER"
           echo "api_token=$api_token"
           echo "api_user=$api_user"
+        env:
+          ZENTRAL_API_TOKEN: ${{ steps.auth.outputs.zentral-api-token }}
+          ZENTRAL_API_USER: ${{ steps.auth.outputs.zentral-api-user }}
+          API_TOKEN: ${{ steps.auth.outputs.api_token }}
+          API_USER: ${{ steps.auth.outputs.api_user }}
