@@ -39,10 +39,13 @@ jobs:
 
       - name: Use the token
         run: |
-          echo "ZENTRAL_API_TOKEN=$STEP_API_TOKEN"
-          echo "ZENTRAL_API_USER=$STEP_API_USER"
-          echo "api_token=$ZENTRAL_API_TOKEN" # will be set directly from zentral-oidc-auth
-          echo "api_user=$ZENTRAL_API_USER" # will be set directly from zentral-oidc-auth
+          echo "ZENTRAL_API_TOKEN (from previous step): $STEP_API_TOKEN"
+          echo "ZENTRAL_API_USERNAME (from previous step): $STEP_API_USERNAME"
+          echo "ZENTRAL_API_USEREMAIL (from previous step): $STEP_API_USEREMAIL"
+          echo "ZTL_API_TOKEN (from ENV): $ZTL_API_TOKEN" # will be set directly from zentral-oidc-auth
+          echo "ZTL_API_USERNAME (from ENV): $ZTL_API_USERNAME" # will be set directly from zentral-oidc-auth
+          echo "ZTL_API_USEREMAIL (from ENV): $ZTL_API_USEREMAIL" # will be set directly from zentral-oidc-auth
         env:
-          STEP_API_TOKEN: ${{ steps.auth.outputs.zentral-api-token }}
-          STEP_API_USER: ${{ steps.auth.outputs.zentral-api-user }}
+          STEP_API_TOKEN: ${{ steps.auth.outputs.ztl-api-token }}
+          STEP_API_USERNAME: ${{ steps.auth.outputs.ztl-api-username }}
+          STEP_API_USEREMAIL: ${{ steps.auth.outputs.ztl-api-useremail }}
