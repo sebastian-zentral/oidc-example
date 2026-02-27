@@ -36,6 +36,7 @@ jobs:
           ztl-oidc-api-token-issuer-id: ${{ vars.ZTL_OIDC_API_TOKEN_ISSUER_ID }} # required
           ztl-api-token-name: "Token for my Github action" # optional
           ztl-api-token-validity: 1200 # optional
+          ztl-oidc-debug: 1 # optional
 
       - name: Use the token
         run: |
@@ -43,6 +44,7 @@ jobs:
           echo "ZENTRAL_API_USERNAME (from previous step): $STEP_API_USERNAME"
           echo "ZENTRAL_API_USEREMAIL (from previous step): $STEP_API_USEREMAIL"
           echo "ZTL_API_TOKEN (from ENV): $ZTL_API_TOKEN" # will be set directly from zentral-oidc-auth
+          echo "ZTL_USERNAME (from ENV): $ZTL_USERNAME" # will be set directly from zentral-oidc-auth
           echo "ZTL_API_USERNAME (from ENV): $ZTL_API_USERNAME" # will be set directly from zentral-oidc-auth
           echo "ZTL_API_USEREMAIL (from ENV): $ZTL_API_USEREMAIL" # will be set directly from zentral-oidc-auth
         env:
