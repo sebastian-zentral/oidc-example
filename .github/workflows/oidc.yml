@@ -30,7 +30,7 @@ jobs:
 
       - name: Authenticate with Zentral
         id: auth
-        uses: zentralopensource/zentral-oidc-auth@main
+        uses: zentralopensource/zentral-oidc-auth@v1.rc0
         with:
           ztl-fqdn: zaio.zentral.dev # required
           ztl-oidc-api-token-issuer-id: ${{ vars.ZTL_OIDC_API_TOKEN_ISSUER_ID }} # required
